@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Entities;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void AddScore(int amount)
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ReduceOrangeBrick()
+    private void ReduceOrangeBrick()
     {
         orangeBricksLeft--;
         if (orangeBricksLeft <= 0)

@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -619,7 +619,7 @@ MonoBehaviour:
   scoreTextDisplay: {fileID: 825315445}
   ballsRemaningTextDisplay: {fileID: 979925077}
   gameOverText: {fileID: 1069946448}
-  youWinText: {fileID: 0}
+  youWinText: {fileID: 970795193}
 --- !u!4 &783876133
 Transform:
   m_ObjectHideFlags: 0
