@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -618,8 +618,8 @@ MonoBehaviour:
   orangeBricksLeft: 0
   scoreTextDisplay: {fileID: 825315445}
   ballsRemaningTextDisplay: {fileID: 979925077}
-  gameOverText: {fileID: 1069946448}
-  youWinText: {fileID: 970795193}
+  gameOverText: {fileID: 1069946446}
+  youWinText: {fileID: 970795191}
 --- !u!4 &783876133
 Transform:
   m_ObjectHideFlags: 0
@@ -1514,7 +1514,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 330585545}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

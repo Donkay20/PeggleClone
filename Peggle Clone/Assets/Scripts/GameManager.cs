@@ -11,18 +11,26 @@ public class GameManager : MonoBehaviour
     public int orangeBricksLeft;
     public TextMeshProUGUI scoreTextDisplay;
     public TextMeshProUGUI ballsRemaningTextDisplay;
-    public TextMeshProUGUI gameOverText;
-    public TextMeshProUGUI youWinText;
+    public GameObject gameOverText;
+    public GameObject youWinText;
     private bool resultShown;
+    private EntityManager manager;
     void Start()
     {
         ballsRemaining = 10;
         resultShown = false;
+        ballsRemaningTextDisplay.text = "Balls: " + ballsRemaining;
+        manager = World.DefaultGameObjectInjectionWorld.EntityManager;
     }
 
     void Update()
     {
-
+        if (Input.GetMouseButtonDown(0) && !resultShown && ballsRemaining >= 1)
+        {
+            var e = manager.CreateEntity();
+            manager.AddComponent<LaunchBallEvent>(e);
+            AdjustBallDisplay();
+        }
     }
 
     public void AddScore(int amount)
@@ -31,13 +39,17 @@ public class GameManager : MonoBehaviour
         scoreTextDisplay.text = "Score: " + score;
     }
 
-    public void ReduceBall() //change this later
+    public void AdjustBallDisplay()
     {
         ballsRemaining--;
         ballsRemaningTextDisplay.text = "Balls: " + ballsRemaining;
+    }
+
+    public void BallFell()
+    {
         if (ballsRemaining <= 0)
         {
-            GameOver(false);
+            EndGame(false);
         }
     }
 
@@ -46,21 +58,21 @@ public class GameManager : MonoBehaviour
         orangeBricksLeft--;
         if (orangeBricksLeft <= 0)
         {
-            GameOver(true);
+            EndGame(true);
         }
     }
 
-    private void GameOver(bool victory)
+    private void EndGame(bool victory)
     {
-        if (!resultShown)   //if a result message has already been shown it can't check it again
+        if (!resultShown) 
         {
             if (victory)
             {
-                youWinText.enabled = true;
+                youWinText.SetActive(true);
             }
             else
             {
-                gameOverText.enabled = true;
+                gameOverText.SetActive(true);
             }
             resultShown = true;
         }
