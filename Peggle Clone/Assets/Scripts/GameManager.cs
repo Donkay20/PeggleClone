@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public int score;
     public int ballsRemaining;
-    public int orangeBricksLeft;
+    public int pegsLeft;
     public TextMeshProUGUI scoreTextDisplay;
     public TextMeshProUGUI ballsRemaningTextDisplay;
     public GameObject gameOverText;
@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ballsRemaining = 10;
+        pegsLeft = 20;
         resultShown = false;
         ballsRemaningTextDisplay.text = "Balls: " + ballsRemaining;
         manager = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-        scoreTextDisplay.text = "Score: " + score;
+        scoreTextDisplay.text = "Score: " + score +"/2000";
     }
 
     public void AdjustBallDisplay()
@@ -53,10 +54,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void ReduceOrangeBrick()
+    public void PegHit()
     {
-        orangeBricksLeft--;
-        if (orangeBricksLeft <= 0)
+        AddScore(100);
+        pegsLeft--;
+        if (pegsLeft <= 0)
         {
             EndGame(true);
         }

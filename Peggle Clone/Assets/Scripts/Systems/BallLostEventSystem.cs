@@ -10,7 +10,6 @@ public partial struct BallLostEventSystem : ISystem
         var manager = GameObject.FindObjectOfType<GameManager>();
         if (manager == null) return;
 
-        // Build the query manually
         var query = SystemAPI.QueryBuilder()
             .WithAll<BallLostEvent>()
             .Build();

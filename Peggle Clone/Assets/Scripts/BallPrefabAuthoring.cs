@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BallPrefabAuthoring : MonoBehaviour
 {
-    public GameObject prefab; // reference to your ball GameObject prefab
+    public GameObject prefab; 
 
     class Baker : Baker<BallPrefabAuthoring>
     {
